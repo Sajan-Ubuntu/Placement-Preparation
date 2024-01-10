@@ -1,0 +1,103 @@
+What is a Bootloader?
+
+>> A bootloader is responsible for the boot of an operating system which contains required 
+   files to boot the operating system.
+   
+   When the system is powered on the bootloader runs all the files and processess that are 
+   required to boot the operating system.
+   
+   Example of an Bootloader is GRUB [Grand Unified Bootloader].
+   LILO and SYSLINUX are also the Example of bootloader.
+   
+===================================================================================================================================================
+
+The Kernel and The Shell
+===================================================================================================================================================
+
+What is a Kernel?
+
+>> The computer programs that allocate the system resources and coordinate all the details of the 
+   computer's internals is called the Linux kernel.
+   
+   A kernel is the heart of any operating system.
+   
+   It interacts with the hardware and most of the tasks like Memory management, Task scheduling and file management.
+   
+   Users communicate with the kernel through a program called the Shell.
+
+Kernel functions
+-------------------------------
+   * I/O Management
+   * Process Management
+   * Device Management
+   * File Management
+   * Memory Management
+   
+
+What is a Shell?
+
+>> The Shell is command line Interpreter which translates commands entered by the user and
+   converts those commands into a language that is understood by the kernel.
+   
+   It is not a part of system kernel.
+   
+===================================================================================================================================================
+
+Different Types of Shell
+===================================================================================================================================================
+    
+    * Bourne shell [ sh ]
+   	
+   	>> Developed by Stephen Bourne
+   	>> Includes core command set
+   	
+      LIMITAIONS :-
+      	
+      	>> Does not provide history list
+      	>> Does not provide Command line editing
+      	Not fiendly for interactive uses
+   
+    * C shell [ csh ]
+    	
+    	>> Created by Bill Joy
+    	>> Developed to provide a command set and Scripting Environment
+    	>> Syntax in 'C' Programming Language.
+    	
+      FEATURES :-
+      
+       	>> Includes command aliases.
+       	>> Command history.
+       	
+     * Korn shell [ ksh ]
+     	>> Developed by David Korn
+     	>> Derived from original Bourne shell.
+     	
+      FEATURES :-
+      
+       	>> Supports command line editing.
+       	>> provides built in commands.
+       	>> support command aliases and many features like BASH.
+       	
+     * Bourne Again shell [ bash ]
+     
+     	>> Developed by Brian Fox and Chet Ramey 
+     	>> Based on Bourne shell
+     	>> provides additional features set including command line editing, a history list
+     	   and filenname completion. 
+     	>> can write shell script using Bourne shell like syntax.
+     
+     * Other shells
+     	
+     	>> Adventure shell (ash)
+     	>> Extensible Shell (es)
+     	>> Z shell (zsh)
+   
+   
+   
+   
+   
+   
+   
+   
+   
+      

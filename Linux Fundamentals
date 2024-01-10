@@ -1,0 +1,372 @@
+Working With Directories: 'pwd' & 'clear' {Basic Commands}
+====================================================================================================================================================
+
+pwd :~ displays the present working directory
+cd :~ command used to change the directory
+ls :~ command used to list the content of a directory
+clear :~ command used to clear the terminal screen
+echo :~ command that writes its arguments to standard output
+su :~ command used to switch to root user with all administrative permissions
+su username :~ command to switch to a different user
+sudo :~ command to execute a particular command as an Administrator
+
+$ man command_name :~ This command is used to know all the details about any spcified command and its arguments.
+====================================================================================================================================================
+
+Working With 'ls' Command  [List]
+====================================================================================================================================================
+
+ls path :~ list the content of a directory in a specified path
+ls -l :~ list the content of a dirctory along with owner settings, permissions & time stamp (long format)
+ls -a :~ list all the hidden contents in the directory
+ls -author :~ list the contents in the directory along with its owner
+ls -S :~ Sort the list of contents in the directory according to their sizes
+ls -laS :~ we can combine the above arguments in one command
+ls -laS > file_name.txt :~ ">" command is used to store the result obtained by the given command in a new 
+
+====================================================================================================================================================
+
+Working With 'cd' Command  [change directory]
+====================================================================================================================================================
+
+cd :~ Changes the directory to the home directory
+cd ~ :~ This command also changes the directory to home directory
+cd / :~ Changes the directory to root directory
+cd .. :~ Changes the directory to its parent directory
+cd folder_name :~ Changes the directory to the specified directory
+
+{NOTE** if there is a space between the folder name then use single inverted comma or else the space will be treated as an argument}
+
+====================================================================================================================================================
+
+Working With Files: 'cat' Command  [concatinate]
+====================================================================================================================================================
+
+touch file_name :~ This command is used to create a single file with the specified file name.
+touch file_1 file_2 :~ This command is used to create multiple files with their specified name respectively.
+
+cat file_name :~ This command is used to view the content of the specified file
+cat > file_name :~ This command is used to write into the specified file and if the file is not present then it will create a new file 
+		   with the same name as specified
+cat file_1 file_2 :~ This command is used to view multiple files at a time [concatenation]
+cat file_1 >> file_2 :~ ">>" command is used to append the data of file_1 into file_2
+
+{NOTE** ">" this command will update(replace) the content of the files with the new content
+	">>" this command will append(add) the new content to the files with out replacing the existing content}
+
+cat -b :~ 'b' flag is used to display the line numbers to all the non-blank lines.
+cat -n :~ 'n' flag is used to display the line numbers to all the lines (including blank lines)
+cat -s :~ 's' flag is used to squeeze(merge) multiple blank lines into one line
+cat -E :~ 'E' flag is used to show "$" at the end of each line
+
+{ "ctrl + D" to save the files and back to command mode}
+
+tac file_name :~ It is the reverse of cat command. this command is used to display the file content in reverse order.
+more file_name :~ It is the same as cat command which is used display the content of the file but is used for the LARGE files.
+less file_name :~ It is same as more command but it adjust the terminal size as per the file size to view the file content.
+
+head file_name :~ This command is used to display the first 10 lines of the file content.
+tail file_name :~ This command is used to display the last  10 lines of the file content.
+
+====================================================================================================================================================
+
+Working With 'grep' Command  [global regular expression print]
+====================================================================================================================================================
+
+"grep" command is used to search for a particular string or a word in a text file.
+in windows "ctrl + F" command is used to do the same.
+
+grep string_name file_name :~ This command returns the results for matching string "string_name" in a specified file
+grep -i string_name file_name :~ This command returns the results for case Insensitive string
+grep -n string_name file_name :~ This command returns the results for the matching string along with their line number
+grep -v string_name file_name :~ This command returns the results of lines not matching the searched string
+grep -c string_name file_name :~ This command returns the number of lines in which the string_name is matched in the file
+
+====================================================================================================================================================
+
+Working With 'sort' Command  
+====================================================================================================================================================
+
+"sort" command is used to sort the result of a search either alphabetically or numerically.
+Files, file contents and directories can be sorted.
+
+sort :~ This command allows to enter some text and sort it in alphabetical order
+sort file_name :~ This command is used to sort the content of the specified file in alphabetical order
+sort file_1 file_2 :~ This command is used to sort multiple files at the same time
+sort -r file_name :~ This command is used to sort the content of the file in reverse order
+sort -f file_name :~ This command is used to sort the content of the file in case insensitive manner alphabetically
+sort -n file_name :~ This command is used to sort the content of the file in numerical order
+
+{NOTE** Order of sorting a text file:-
+[blank_space, Numerical, UPPERCASE letters, lowercase letters, symbols]}
+
+====================================================================================================================================================
+
+Working With '|' aka "pipe" command
+====================================================================================================================================================
+
+'|' or "pipe command is used to perform any two different operations/commands as a single command.
+This command is used to output the result of one command as input to another command.
+
+grep string_name file_1 file_2 | sort :~ This command will search for the string_name in both files and sort the result obtaines from the search
+grep string_name file_1 file_2 | sort -r :~ This command will sort the above result in reverse order
+
+====================================================================================================================================================
+
+Working With 'cp' [copy] & 'mv' [move] command 
+====================================================================================================================================================
+
+'cp' command is used to copy files and directories
+
+cp source[file name/path] destination[directory path] :~ This command copies the source file to the destination file
+{NOTE** by simply using the above command, this will overwrite a file if a file already exists in the same name}
+
+cp -i source[file name/path] destination path :~ This command will ask for yor permission to overwrite the file if the same file already exist
+cp -n source[file name/path] destination path :~ This command will not overwrite the file if the file already exist
+cp -R source[Directory path] destination path :~ This command will Recursively copy[sub folders and hidden files] for copying directories
+cp -v :~ Verbose command is used to prints informative messages related to the command.  
+
+'mv' command is used to move files and directories
+{NOTE** All the options/flags for the mv command is same as the cp command
+
+To copy or move all the files in a directory to a destination directory we can use "*" with cp or mv command
+cp *.txt destination path
+mv *.txt destination path
+====================================================================================================================================================
+
+Working With 'mkdir' [make directory], 'rmdir' [remove directory] & 'rm' command 
+====================================================================================================================================================
+
+mkdir directory_name :~ This will create a new directory with the specified directory name
+mkdir -p directory_1/directory_2 :~ This will create both the parent and the sub-directory at the same time
+mkdir -p directory_1/{sub_1,sub_2,sub_3} :~ This will create multiple sub-directory under one directory at the same time
+  
+rmdir directory_name :~ This command will remove the specified directory
+rmdir -p directory_1/directory_2 :~ This command will remove both the parent and the sub-directory at the same time
+
+rm file_name :~ This command is used to remove/delete a specified file
+rm -r directory_name :~ This command is used to remove a specified directory even if it is not empty
+rm -rp directory_name :~ This command is used to remove a non empty directory including the parent directory and subdirectory
+
+====================================================================================================================================================
+
+Working With User Permisssions: 'r', 'w' & 'x'
+====================================================================================================================================================
+  _______________________          ____________________          __________________
+ |      File types       |        |  File permissions  |        |     Denotions    |
+ |-----------------------|        |--------------------|        |------------------|
+ | Normal File    :~ '-' |        | Read    :~ 'r' [4] |        | Users  :~ 'u'    |
+ | Directory      :~ 'd' |        | Write   :~ 'w' [2] |        | Groups :~ 'g'    |
+ | Character File :~ 'c' |        | Execute :~ 'x' [1] |        | Others :~ 'o'    |
+ | Binary File    :~ 'b' |        |____________________|        | All    :~ 'a'    |
+ | Link           :~ 'l' |                                      |__________________|
+ |_______________________| 
+
+  $ ls -l
+  d rwx rwx r-x 1 sajan sajan 4096 Dec 20 15:55 Desktop
+
+ _______________________________________________________________________________________________________________________________________________________________
+|File/dir type | User permissions | Group permissions | other's permissions | Symbolic links | Owner's name | Group name | file size |  Time stamp  | File name |
+|--------------|------------------|-------------------|---------------------|----------------|--------------|------------|-----------|--------------|-----------|
+|     d        |      r w x       |       r w x       |        r - x        |       1        |    sajan     |    sajan   |    4096   | Dec 20 15:55 |  Desktop  |                 
+|______________|__________________|___________________|_____________________|________________|______________|____________|___________|______________|___________|
+
+
+'chmod' [Change mode] command is used to change the access permissions of files and directories
+'chown' [Change owner] command is used to change the owner of files and directories
+'chgrp' [Change group] command is used to change the group ownership of file and directories
+
+
+'chmod' command with 'decimal values{421}' to change file permissions:-
+-----------------------------------------------------------------------
+
+as we know, 
+		r = 4
+		w = 2
+		x = 1
+		- = 0
+if we want to change permission to user, group or other users then,
+we will add the each digit according to the permission we want to add
+
+suppose, we want to change permission to a file as given:- "- rwx r-x r--"
+
+then the command would be :- $ chmod 754 file_name
+
+here,7 => r+w+x   i.e 4+2+1 = 7
+     5 => r+'-'+x i.e 4+0+1 = 5
+     4 => r+'-'+- i.e 4+0+0 = 4 
+
+'chmod' command with 'Denotions {u,g,o} to change file permissions:-
+------------------------------------------------------------------------
+
+In this case we will use the operators {"=","+","-"}
+
+		"=" :~ this operator update/replace the previous permissions with the new permissions
+		"+" :~ This operator add the new permissions to the previous permissions
+		"-" :~ This operator removes the specified permissions from the previous permissions
+		 
+suppose, we want to change permission of a file as given:- 
+
+"- r-- rwx -wx" which was "- rwx r-x r--" before.
+
+then the command would be :- $ chmod u=r,g=rwx,o=wx file_name
+
+the alternate command would be :- $ chmod u-wx,g+w,o=wx file_name
+
+'chown' command:-
+------------------------------------------------------------------------
+
+$ chown user_name file_name  :~ This command will change the owner of the file
+
+
+'chgrp' command:-
+------------------------------------------------------------------------
+
+$ chgrp group_name file_name :~ This command will change the group of the file
+
+==================================================================================================================================================== 
+
+Working With Linux Repositories: 'apt' command
+====================================================================================================================================================
+
+Most of the software's will already be available in Linux repositories.
+Command to install them:
+
+APT is a command-line package manager that comes preinstalled on Ubuntu and other debian based distributions.
+The apt command combines the functionality of "apt-cache" and "apt-get".
+It is responsible for installing, removing, updating and upgrading packages and Linux repositories on ubuntu. 
+
+$ sudo apt-get install package_name {you can find the package name of the requried software from google}
+
+apt list :~ This command will list down all the installed and uninstalled packages on your system
+apt list | grep package_name :~ This command filter the output and get a package name of your choice from the list
+apt list --installed :~ list all the installed packages
+apt list --upgradable :~ list the packages that needs to be upgraded
+
+====================================================================================================================================================
+  
+Working With Tar Files
+====================================================================================================================================================
+
+When we download a package from the internet, the downloaded file comes in compressed form.
+Commands to decompress and compress files in Linux: 
+
+gzip:~ To compress files with ".gz" format
+gunzip:~ To decompress ".gz" files
+tar:~ To compress and decompress files with ".tar" format
+
+tar -cf Dest_file_name.tar Src_ file_name :~ command used for compressing files to Tar format
+tar -xf file_name.tar :~ command used for extracting/decompressing files in Tar format
+
+{NOTE** We can also use the vervose argument i.e "-v" to display the informative message of the process}
+
+====================================================================================================================================================
+
+Working With Environment Variables
+====================================================================================================================================================
+
+Environment variables control the behavior of the software packages installed in Linux.
+The path where the packages have been installed will be specified in environment variable.
+
+printenv :~ This command will print the list of all the environment variables
+echo $HOME :~ This command will print the path of the home directory of the user.
+echo $PATH :~ This command will print the path of all the directories separated by a ":"
+echo $HOSTNAME :~ This command will print the hostname
+echo $USERNAME :~ This command will print the username
+echo $LANG :~ This command will print the language that is being used
+echo $BASH_VERSION :~ This command will print ther version of this instance of bash
+
+gedit .bashrc :~ This command is used to set the environment variables
+
+====================================================================================================================================================
+
+Working With Regular Expressions
+====================================================================================================================================================
+
+Regular Expressions are used to search through data.
+It can be piped along with 'grep' command to find patterns of text in the file.
+	
+	 _______________________________________________________________
+	|  Symbol  |                    Explanation	  		|
+	|----------|----------------------------------------------------|
+	|    .     | Replaces any character				|
+	|----------|----------------------------------------------------|
+	|    ^     | Matches the start of the string			|
+	|----------|----------------------------------------------------|
+	|    $     | Matches the  end  of the string			|
+	|----------|----------------------------------------------------|
+	|    *     | Matches the preceding character zero or more times	|
+	|----------|----------------------------------------------------|
+	|    ?     | Matches the preceding character one  or more times	|
+	|----------|----------------------------------------------------|
+	|   ( )    | Groups regular expressions				|
+	|----------|----------------------------------------------------|
+	|    \     | Represents special characters			|
+	|__________|____________________________________________________|
+
+
+====================================================================================================================================================
+
+Working With Processes
+====================================================================================================================================================
+
+ --> An instande of a program is called a process.
+ --> Any command given to Linux kernel starts a new process.
+ --> There can be multiple processes of the same program.
+ 
+Process can be divided into two types:-
+
+	Foreground Processes & Background Processes
+
+$ top :~ This command is used to show all the runing process with details.
+
+ {NOTE** To come out of the top press "ctrl + c"}
+ _____________________________________________________________________________
+| PID | USER | PR | NI | VIRT | RES | SHR | S | %CPU | %MEM | TIME+ | COMMAND |
+|_____|______|____|____|______|_____|_____|___|______|______|_______|_________|
+
+PID 	:~ Process id
+USER 	:~ User name
+PR 	:~ Priority value [ranges from -20 to +20]
+NI 	:~ Niceness value [ranges from -20 to +20]
+VRT 	:~ Virtual Memory
+RES 	:~ Physical Memory
+SHR 	:~ Shared Memory
+S 	:~ Status
+%CPU 	:~ CPU Time
+%MEM 	:~ Physical Memory used
+TIME+ 	:~ Total CPU time
+COMMAND :~ command
+
+$ pidof process_name :~ This command is used to find out the process id of the specified process
+$ kill pid :~ This command is used to terminate a process specified by the process id
+
+====================================================================================================================================================
+
+Creating Users
+====================================================================================================================================================
+
+$ sudo useradd user_name :~ This command is used to  add a new user
+$ sudo passwd  user_name :~ This command is used to change or set a password to the specified user
+$ sudo userdel user_name :~ This command is used to delete the specified user
+
+$ sudo groupadd group_name :~ This command is used to add a new group
+$ sudo groupdel group_name :~ This command is used to delete the specified group 
+$ sudo usermod -g group_name user_name :~ This command is used to add a user to a primary group
+
+====================================================================================================================================================
+
+Linux File System
+===================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+

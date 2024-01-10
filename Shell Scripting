@@ -1,0 +1,310 @@
+What is a Shell Script?
+
+>> The basic concept of a shell script is a list of commands, which are listed in the order of execution.
+   
+   A good shell script which have comments, preceded by '#' sign, describing the steps.
+
+   --> Shell script consist of set of commands to perform a task.
+   --> All the commands excecute sequentially.
+   --> Some task like file manipulationm program execution, user interaction, automation of task etc can be done.
+   
+===================================================================================================================================================
+
+Linux SHELL Scripting
+===================================================================================================================================================
+
+We need to write our script in to any of the text editor such as vim or nano etc.
+
+Script Format
+---------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	#!bin/bash  :~ 	This is the basic command/syntax of the Script format which tells the Linux terminal to 
+			execute the specified file by using 'bash' Shell.
+
+        ./file_name :~	This command is used to run or execute a script file in Linux Terminal.
+	
+{NOTE**     -->	Before executing a script inside a terminal make sure that the script file is executable i.e it must contain
+		the permission to execute the file. Otherwise you need to change the file permission by using 'chmod' command 
+	    
+	    --> We can also execute a file without the "execute" permission by using the 'bash' command.
+	    	
+	    	{ $ bash file_name.sh }
+	    	
+	    -->	It is a very good practice to save the script file with ".sh" extention so that the file can be identified as
+	    	a script file and makes the file content readable. }	    
+
+===================================================================================================================================================
+
+Sending Output to Screen
+===================================================================================================================================================
+
+	echo Hello World
+	
+	echo "Hello World"
+
+{NOTE** echo"Hello World" is an invalid command. Take care of blankspaces.}
+
+--> We can use the "\n" to enter a new line in echo command but then we will have to use the "-e" flag with echo command.
+ 	
+ 	example :- echo -e "\n Hello World \n"
+ 
+{NOTE** That the -e flag does not function in all versions of your system. So you can use "\n" with "printf".}
+  
+===================================================================================================================================================
+
+Variables in Script
+===================================================================================================================================================
+
+	var_name=value
+	
+	To use the variable always use '$' sign preceding the var_name i.e $var_name.
+	
+	We can also store the results of the command in a variable.
+		
+		var_name=$(command_name)	
+		
+		example :- host=$(hostname) :~ This will store the hostname provided by the command "hostname".
+
+{NOTE** There should not be any blankspace in between the var_name and the "=" or in between the "=" and value.
+	
+	i.e [var_name = value // var_name =value // var_name= value] are invalid commands.}
+
+===================================================================================================================================================
+
+How to take input from user?
+===================================================================================================================================================
+
+	read var_name
+	
+===================================================================================================================================================
+
+A Basic Shell Script program for the implementation of above concepts:-
+===================================================================================================================================================
+	
+	#!/bin/bash	("!#" :- pronounced as  'sha-ban' )
+	
+	name=Sajan_Kumar_Sahu
+	
+	echo "Hi $name, Please enter your age:"
+	read age
+	
+	echo "Please enter your college id:"
+	read uid
+	
+	echo "Your Details are :"
+	
+	echo Name : $name
+	echo Age  : $age
+	echo UID  : $uid
+	
+	 _____________________________________________
+	|                  OUTPUT                     |
+	|---------------------------------------------|
+	| Hi Sajan_Kumar_Sahu, Please Enter your age: |
+	| 22  //user input                            |
+	|                                             |
+	| Please Enter your college id:               |
+	| 23MCC20005 //user input                     |
+	|                                             |
+	| Your Details are :                          |
+	| Name : Sajan_Kumar_Sahu                     |
+	| Age  : 22                                   | 
+	| UID  : 23MCC20005                           |
+	|_____________________________________________|
+	
+===================================================================================================================================================
+
+Types of Opetators
+===================================================================================================================================================
+
+	 _______________________________________
+	|  Syntax  |        Explanation	  	|
+	|----------|----------------------------|
+	| -eq / == | Equals			|
+	|----------|----------------------------|
+	| -ne / != | Not Equal			|
+	|----------|----------------------------|
+	|   -gt    | Greater Than		|
+	|----------|----------------------------|
+	|   -ge    | Greater Than or Equals to	|
+	|----------|----------------------------|
+	|   -lt    | Less Than			|
+	|----------|----------------------------|
+	|   -le    | Less Than or Equals to	|
+	|__________|____________________________|
+
+===================================================================================================================================================
+
+Conditional Statements in Script [If-else]
+===================================================================================================================================================
+
+if-else
+------------------------------------------------------------
+
+	if [ $age -eq 18 ]
+	then 
+	    echo "You are eligible to vote"
+        else
+            echo "Sorry you are not eligible to vote"
+        fi
+
+elif 
+--------------------------------------------------------------
+	a=100
+	b=200
+	c=300	
+
+	if [[ a -gt b && a -gt c ]]
+	then
+	    echo "A is the biggest element"
+	elif [[ b -gt a && b -gt c ]]
+	then 
+	    echo "B is the biggest element"
+	else
+	    echo "C is the biggest element"
+	fi
+
+
+Switch case in Scripting
+--------------------------------------------------------------
+{NOTE** We do not have any kind of command or keyword such as "switch" in Scripting unlike other programming language.}
+
+	#!/bin/bash
+	
+	echo -e "Hey choose an option \n"
+	echo "Enter 'a' to see the current date"
+	echo "Enter 'b' to list all the files in current dir"
+	
+	read choice
+	
+	case $choice in
+		a)date;;
+		b)ls;;
+		*)echo "Not a valid input"	// default value
+	esac
+
+===================================================================================================================================================
+
+For Loop in Scripting
+===================================================================================================================================================
+
+	for i in 1 2 3 4 5
+	do
+		echo $i
+	done
+ 
+ // other ways to write for loop
+	
+ //	for i in Eat Sleep Code Repeat
+	do
+		echo My task is to $i
+	done
+
+
+ //     for i in {1..100}
+      	do
+      		echo $i
+      	done
+      	
+      	
+ //     for ((i=0; i<10; i++))
+ 	do 
+ 		echo $i
+ 	done	
+
+===================================================================================================================================================
+
+While Loops in Scripting
+===================================================================================================================================================
+
+	while [ //comparisions ]
+	do
+		statements to be executed
+	done
+
+===================================================================================================================================================
+
+Iterating through the contents of a file
+===================================================================================================================================================
+
+	var_name="path of the file"
+	
+	for items in $(cat $var_name)
+	do
+		echo $items
+	done
+	
+	
+ //iterating through files {prints all the file name present in the directory}
+ 	
+ 	for FILE in *
+ 	do
+ 		echo $FILE
+ 	done	
+
+===================================================================================================================================================
+
+How to use expression
+===================================================================================================================================================
+
+ We can use any expression in scripting by using 'let' command.
+ 
+ 	example:
+ 	
+ 		let a++
+ 		let a=5*10
+ 		let b=50-20
+
+===================================================================================================================================================
+
+Functions
+===================================================================================================================================================
+## Function Defination
+
+	function_name()
+	{
+	    // code_block
+	}
+
+## Function call
+	
+	function_name
+
+===================================================================================================================================================
+
+Cron Jobs in Linux
+===================================================================================================================================================
+
+What is Cron?
+
+>> Cron is a service or utility which is used to schedule tasks or repeatative tasks which occures at some intervals with the help of
+   Crontab command.
+
+	--> Crontab are the files which contains a set of command and details about date and time of execution.
+
+	$ cat crontab
+	      
+	  .----------------------------------------- minute (0-59)   
+	  |   
+	  | .--------------------------------------- hour (0-23) 
+	  | | 
+	  | | .------------------------------------- day of month (1-31)
+	  | | |
+	  | | | .----------------------------------- month (1-12) or jan, feb, mar, apr ...
+	  | | | |
+	  | | | | .--------------------------------- day of week (0-6), (Sunday=0 or 7), or sun, mon, tue, wed, thu, fri, sat
+	  | | | | |                               
+	  | | | | |
+	$ * * * * * user_name executable_command
+
+	$ crontab -l :~ This command will list all the active crontabs(if any).
+
+	$ crontab -e :~ This command will allow you to edit or create a crontab by using an editor.
+			
+			{NOTE** if you use the "crontab -e" command for the very first time you would be asked to choose an editor.
+			 select an editor according to your choice by choosing 1,2,3... etc.}
+
+===================================================================================================================================================
+
+
+	    

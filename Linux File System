@@ -1,0 +1,92 @@
+What is Linux File System?
+
+>> Everything in Linux is a file such as audio, video, text etc. Infact the commands in linux are also files.
+   
+   {NOTE** To check the location of the command file 
+   		$ whereis command_name }
+   		
+   -- Operating system stores and manages data on disk or partitions using a structure called Filesystem.
+   
+   -- FileSystem includes files, directories and it's related permissions.
+   
+   -- FileSystem stores data in Hierarchical manner i.e in a tree like structure.
+   
+>> A file system is a set of processes that controls how, where and when data is stored and retrieved from a storage device.
+	
+	A good file system is essential for everyday system processess. A linux file system is a structured collection of 
+	files on a disk drive or partition. 
+
+===================================================================================================================================================
+
+Types of File System
+-------------------------------------------------
+
+There are basically six types of linux file system.
+
+	--> Ext, Ext2, Ext3 :~ Ext stands for Extended File System. Ext2 was the first linux file system that
+	    allows managing 2TB of data. Ext4 is the fastest.
+	
+	--> JFS :~ JFS stands for Journaled File System. It was developed by IBM.
+	
+	--> RaiserFS :~ It is an alternative to Ext3 file system. Earlier RaiserFS was used as the default file 
+		        system for Linux SUSE. Dynamically supports the file extension but has performance drawbacks.
+		        
+	--> XFS :~ It was considered as high speed JFS which is developed for parallel I/O processing. It is Used by NASA.
+		   XFS is 64bit high performance File system which supports parallel I/O operations. 
+
+	--> BTRFS :~ It stands for B-Tree File System. It is used for fault tolerance, repair systems etc.
+
+	--> SWAP File System :~ Swap file system is used for memory paging in Linux OS during system hibernation.
+
+{NOTE** Ubuntu 22.04 version (my system) uses Ext4 File system whereas CentOs uses XFS file system by defalut}
+
+===================================================================================================================================================
+
+File System Directories 
+--------------------------------------------------
+ 
+ bin/ 	:~ Contains binaries, i.e some of the applications and programs you can run.
+ 	   Ls command and other basic tools for making and removing files are present.
+ 
+ dev/ 	:~ Contains device files. Many of these are generated at boot time or even on the fly.
+ 
+ etc/ 	:~ etc stands for "Everything to configure" as it contains configuration files of all the applications.
+ 
+ home/ 	:~ It contains the user's personal directories. ex:- home/sajan/
+ 
+ lib/ 	:~ All libraries are found in this directory. Libraries are files containing code that your application can use.
+ 	   The lib under root contains all the important kernel modules.
+ 
+ media/ :~ This is the directory where external storage will automatically be mounted when you plug it in and
+ 	   try to access it.
+ 
+ boot/	:~ This directory contains files used by boot loader (Ex: GRUB)
+ 
+ tmp/	:~ It contains all the temporary files.
+ 
+ var/ 	:~ system logs.
+ 
+===================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
